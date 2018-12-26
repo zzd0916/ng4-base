@@ -1,0 +1,16 @@
+<h2>Person Contact</h2>
+<form id="filter">
+    <label>Filter Name</label>
+    <input type="text" [(ngModel)] = "term" name="first" >
+</form>
+<ul id="person-listing">
+  <li *ngFor="let person of people | filter:term">
+    <div class="single-person">
+        <!-- 使用 | pipe管道 -->
+        <span [ngStyle]="{background:person.color}">{{person.color | uppercase}}</span>
+        <h3>{{person.name}}</h3>
+        <h3>{{person.phone}}</h3>
+    </div>
+  </li>
+</ul>
+<button (click)="logIt()">Log me</button>
